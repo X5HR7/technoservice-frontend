@@ -1,0 +1,37 @@
+@import "@/shared/styles/variables";
+
+.spinner {
+  margin: 0 auto;
+  padding: 0;
+  border-radius: 50%;
+  border: 2px solid $colorBackgroundContrastInverse;
+  border-bottom-color: transparent;
+  animation: rotation 1s linear infinite;
+  box-sizing: border-box;
+  opacity: .2;
+
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+.small {
+  width: 15px;
+  height: 15px;
+}
+
+.medium {
+  width: 35px;
+  height: 35px;
+}
+
+.large {
+  width: 70px;
+  height: 70px;
+  border-width: 3px;
+}
