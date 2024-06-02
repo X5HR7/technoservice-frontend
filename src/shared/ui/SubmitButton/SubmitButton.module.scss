@@ -1,0 +1,38 @@
+.form__submit-button {
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 6px;
+  padding: 14px;
+  width: 100%;
+  color: #FFF;
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  border: none;
+  border-radius: 3px;
+  background-color: #4285F4;
+
+  &:disabled {
+    color: #C2C2C2;
+    background-color: #F8F8F8;
+  }
+
+  &:disabled:hover {
+    cursor: not-allowed;
+    opacity: 1;
+  }
+}
+
+.error {
+  margin: 0 0 16px 0;
+  padding: 0;
+  width: 100%;
+  min-height: 14px;
+  color: #EE3465;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
