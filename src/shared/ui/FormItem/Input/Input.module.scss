@@ -1,0 +1,30 @@
+@import "@/shared/styles/variables";
+
+.form__input {
+  margin: 0;
+  padding: 0 0 10px 0;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #424242;
+  color: $colorTextPrimary;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  background-color: rgba(0, 0, 0, 0);
+  transition: border-bottom-color .3s;
+
+  &_type_email {
+    font-weight: 500;
+  }
+
+  &_error {
+    color: #EE3465;
+  }
+
+  &:focus {
+    outline: none;
+    border-bottom-color: #4285F4;
+    transition: border-bottom-color .3s;
+  }
+}
