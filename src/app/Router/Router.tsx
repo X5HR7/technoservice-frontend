@@ -19,7 +19,7 @@ interface IRouter {
 const Router: FC<IRouter> = ({ isAuth }) => {
   return (
     <Routes>
-      <Route path={'/'} element={<PublicRoute element={MainPage} isAuth={isAuth} />} />
+      <Route path={'/'} element={<ProtectedRoute element={MainPage} isAuth={isAuth} />} />
       <Route
         path={'/client'}
         element={<ProtectedRoute element={ClientRequestsPage} isAuth={isAuth} />}
