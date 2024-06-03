@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import styles from './ClientRequestsPage.module.scss';
 
 const ClientRequestsPage: FC = () => {
   return (
