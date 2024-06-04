@@ -32,7 +32,7 @@ const Router: FC<IRouter> = ({ isAuth }) => {
       <Route path={'/statistics'} element={<ProtectedRoute element={StatisticsPage} isAuth={isAuth} />} />
       <Route path={'/sign-in'} element={<PublicRoute element={LoginPage} isAuth={isAuth} />} />
       <Route path={'/sign-up'} element={<PublicRoute element={RegisterPage} isAuth={isAuth} />} />
-      <Route path={'/403'} element={<PublicRoute element={Page403} isAuth={isAuth} />} />
+      <Route path={'/403'} element={<Page403 />} />
       <Route path={'*'} element={<Page404 />} />
     </Routes>
   );
