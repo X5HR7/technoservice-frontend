@@ -1,10 +1,12 @@
 import React, { FC } from 'react';
 import { FormItem, Spinner } from '@shared/ui';
 import styles from './MainPage.module.scss';
+import { Header } from '@widgets/Header';
 
 const MainPage: FC = () => {
   return (
     <div>
+      <Header />
       <form className={styles.form}>
         <FormItem titleText={'Имя'} errorMessage={'Error'} input={{
           value: '',
