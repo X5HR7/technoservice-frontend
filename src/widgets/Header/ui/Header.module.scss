@@ -1,0 +1,42 @@
+@import "@/shared/styles/variables";
+
+.header {
+  margin: 0;
+  padding: 15px 0;
+  width: 100%;
+  background-color: $colorBackgroundSecondary;
+}
+
+.nav {
+  margin: 0 auto;
+  padding: 0;
+  max-width: 1280px;
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  justify-content: center;
+
+  &__item {
+    margin: 0 20px 0 0;
+    padding: 0;
+    display: block;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+
+  &__link {
+    margin: 0;
+    padding: 0;
+    display: block;
+    text-decoration: none;
+    color: $colorTextPrimary;
+
+    &_active {
+      color: $colorTextLink;
+    }
+  }
+}
+
+
