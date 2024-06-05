@@ -89,7 +89,7 @@ const RegisterForm: FC = () => {
         }}
       />
       <SubmitButton disabled={!isValid || isLoading} error={error?.data?.message?.toString()}>
-        {isLoading ? <Spinner size={'small'} /> : 'Войти'}
+        {isLoading ? <Spinner size={'small'} /> : 'Зарегистрироваться'}
       </SubmitButton>
     </form>
   );
