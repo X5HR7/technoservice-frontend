@@ -7,7 +7,7 @@ import { FormItem, Spinner, SubmitButton } from '@shared/ui';
 import React, { FC, FormEvent, useEffect } from 'react';
 import styles from './CreateRequestForm.module.scss';
 
-const CreateRequestForm: FC<ICreateRequestForm> = ({ isModalOpened, closeModal }) => {
+const CreateRequestForm: FC<ICreateRequestForm> = ({ isModalOpened, closeModal, setRequests }) => {
   const { values, errors, isValid, setIsValid, handleChange, resetForm } =
     useForm<ISchema>(formInitialValues);
   const [createRequest, { isLoading }] = useCreateRequestMutation();
@@ -25,6 +25,7 @@ const CreateRequestForm: FC<ICreateRequestForm> = ({ isModalOpened, closeModal }
     if (!request) {
       setIsValid(false);
     } else {
+      setRequests(prev => [...prev, request]);
       closeModal();
     }
   };
