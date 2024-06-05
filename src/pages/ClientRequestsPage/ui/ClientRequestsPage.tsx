@@ -30,9 +30,6 @@ const ClientRequestsPage: FC = () => {
         ) : (
           <section className={styles.requests}>
             <Requests requests={requests} />
-            <Button disabled={false} appearance={'positive'} mode={'secondary'}>
-              Test btn
-            </Button>
           </section>
         )}
       </main>
