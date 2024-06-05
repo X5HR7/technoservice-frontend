@@ -5,10 +5,11 @@ import styles from './Modal.module.scss';
 interface IModal {
   isOpened: boolean;
   setIsOpened: (isOpened: boolean) => void;
-  children: any;
+  children?: any;
+  className?: string;
 }
 
-const Modal: FC<IModal> = ({ isOpened, setIsOpened, children }) => {
+const Modal: FC<IModal> = ({ isOpened, setIsOpened, children, className }) => {
   const handleCloseOnEsc = useCallback(
     (event: KeyboardEvent) => {
       if (event?.key?.toLowerCase() === 'escape') {
@@ -37,7 +38,7 @@ const Modal: FC<IModal> = ({ isOpened, setIsOpened, children }) => {
 
   return (
     <div className={`${styles.modal} ${isOpened ? styles.modal__opened : ''}`} onClick={closeModal}>
-      <div className={styles.modal__container} onClick={handleModalClick}>
+      <div className={`${styles.modal__container} ${className || ''}`} onClick={handleModalClick}>
         <button className={styles.modal__button} type={'button'} onClick={closeModal}>
           <img src={closeButtonIcon} alt='Close' className={styles.modal__button} />
         </button>
