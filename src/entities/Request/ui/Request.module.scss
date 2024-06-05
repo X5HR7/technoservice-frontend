@@ -1,0 +1,52 @@
+@import "@/shared/styles/variables";
+
+.requests__item {
+  margin: 0;
+  padding: 0;
+  display: block;
+  width: 100%;
+}
+
+.link {
+  margin: 0;
+  padding: 0;
+  display: block;
+  width: 100%;
+  text-decoration: none;
+}
+
+.request {
+  margin: 0 0 20px 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-radius: 5px;
+
+  &:hover {
+    background-color: rgba(45, 45, 46, 0.06);
+  }
+
+  &__col {
+    margin: 0;
+    padding: 5px 10px;
+    color: $colorTextPrimary;
+
+    &-title {
+      margin: 0 0 8px 0;
+      padding: 0;
+      font-size: 17px;
+      font-weight: 600;
+    }
+
+    &-value {
+      margin: 0;
+      padding: 0;
+      max-width: 170px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+}
