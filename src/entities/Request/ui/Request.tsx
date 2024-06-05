@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import styles from './Request.module.scss';
 
 const Request: FC<IRequestProps> = ({ request }) => {
-  const { id, number, equipment, type, description, status, createdAt } = request;
+  const { id, number, equipment, type, status, createdAt } = request;
 
   return (
     <li className={styles.requests__item}>

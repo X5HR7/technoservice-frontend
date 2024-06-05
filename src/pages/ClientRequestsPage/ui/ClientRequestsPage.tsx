@@ -1,7 +1,7 @@
 import { useGetUserRequestsQuery } from '@features/request/request-api.slice.ts';
 import { useTypedSelector } from '@shared/libs/hooks/useTypedSelector.ts';
 import { IRequest } from '@shared/libs/interfaces';
-import { Button, Spinner } from '@shared/ui';
+import { Spinner } from '@shared/ui';
 import { Header } from '@widgets/Header';
 import { Requests } from '@widgets/Requests';
 import React, { FC, useEffect } from 'react';
