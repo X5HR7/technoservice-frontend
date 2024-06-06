@@ -10,6 +10,7 @@ import { MasterRequestsPage } from '@pages/MasterRequestsPage';
 import { Page403 } from '@pages/Page403';
 import { Page404 } from '@pages/Page404';
 import { RegisterPage } from '@pages/RegisterPage';
+import { RequestPage } from '@pages/RequestPage';
 import { StatisticsPage } from '@pages/StatisticsPage';
 
 interface IRouter {
@@ -25,11 +26,18 @@ const Router: FC<IRouter> = ({ isAuth }) => {
         element={<ProtectedRoute element={ClientRequestsPage} isAuth={isAuth} />}
       />
       <Route
+        path={'/requests/:id'}
+        element={<ProtectedRoute element={RequestPage} isAuth={isAuth} />}
+      />
+      <Route
         path={'/master'}
         element={<ProtectedRoute element={MasterRequestsPage} isAuth={isAuth} />}
       />
       <Route path={'/admin'} element={<ProtectedRoute element={AdminPage} isAuth={isAuth} />} />
-      <Route path={'/statistics'} element={<ProtectedRoute element={StatisticsPage} isAuth={isAuth} />} />
+      <Route
+        path={'/statistics'}
+        element={<ProtectedRoute element={StatisticsPage} isAuth={isAuth} />}
+      />
       <Route path={'/sign-in'} element={<PublicRoute element={LoginPage} isAuth={isAuth} />} />
       <Route path={'/sign-up'} element={<PublicRoute element={RegisterPage} isAuth={isAuth} />} />
       <Route path={'/403'} element={<Page403 />} />

@@ -1,0 +1,31 @@
+@import '@/shared/styles/variables';
+
+.page {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.main {
+  margin: 30px auto 0 auto;
+  padding: 0;
+  max-width: 900px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.info, .chat {
+  margin: 0;
+  padding: 10px 15px;
+  background-color: $colorBackgroundSecondary;
+  border-radius: 12px;
+}
+
+.info {
+  width: 450px;
+}
+
+.chat {
+  width: 350px;
+}
