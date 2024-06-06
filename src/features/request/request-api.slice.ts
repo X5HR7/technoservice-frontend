@@ -2,6 +2,13 @@ import { apiSlice } from '@app/store/api/api.slice.ts';
 
 export const requestApiSlice = apiSlice.injectEndpoints({
   endpoints: builder => ({
+    getUserRequest: builder.query({
+      query: (id: string) => ({
+        url: `/requests/${id}`,
+        method: 'GET',
+        keepUnusedDataFor: 60
+      })
+    }),
     getUserRequests: builder.query({
       query: () => ({
         url: '/requests',
@@ -40,6 +47,7 @@ export const requestApiSlice = apiSlice.injectEndpoints({
 });
 
 export const {
+  useGetUserRequestQuery,
   useGetUserRequestsQuery,
   useCreateRequestMutation,
   useUpdateRequestMasterMutation,
