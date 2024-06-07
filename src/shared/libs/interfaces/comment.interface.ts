@@ -1,3 +1,4 @@
+import { IRequest } from '@shared/libs/interfaces/request.interface.ts';
 import { IUser } from '@shared/libs/interfaces/user.interface.ts';
 
 export interface IComment {
@@ -8,4 +9,5 @@ export interface IComment {
   requestId: string;
 
   author?: IUser;
+  request?: IRequest;
 }
