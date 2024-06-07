@@ -1,0 +1,17 @@
+.notifications {
+  margin: 0;
+  padding: 10px 0;
+
+  &__title {
+    margin: 0 10px 0 0;
+    padding: 0;
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+  }
+}

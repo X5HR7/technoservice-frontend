@@ -7,7 +7,11 @@ const RequestInfo: FC<IRequestInfo> = ({ request }) => {
     request;
   return (
     <div className={styles.request}>
-      <h1 className={styles.request__number}>Номер заявки: {number}</h1>
+      <h1 className={styles.request__number}>Подробная информация</h1>
+      <div className={styles.request__item}>
+        <p className={styles['request__item-title']}>Номер заявки:</p>
+        <p className={styles['request__item-value']}>{number}</p>
+      </div>
       <div className={styles.request__item}>
         <p className={styles['request__item-title']}>Оборудование:</p>
         <p className={styles['request__item-value']}>{equipment}</p>
@@ -21,7 +25,7 @@ const RequestInfo: FC<IRequestInfo> = ({ request }) => {
         <p className={styles['request__item-value']}>{status}</p>
       </div>
       <div className={styles.request__item}>
-        <p className={styles['request__item-title']}>Дата подачи заявки</p>
+        <p className={styles['request__item-title']}>Дата подачи заявки:</p>
         <p className={styles['request__item-value']}>{new Date(createdAt).toLocaleDateString()}</p>
       </div>
       <div className={styles.request__item}>

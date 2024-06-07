@@ -5,6 +5,7 @@ import { Spinner } from '@shared/ui';
 import { Chat } from '@widgets/Chat';
 import { Header } from '@widgets/Header';
 import { RequestInfo } from '@widgets/RequestInfo';
+import { RequestNotificationHistory } from '@widgets/RequestNotificationHistory';
 import React, { FC, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import styles from './RequestPage.module.scss';
@@ -35,7 +36,10 @@ const RequestPage: FC = () => {
               <RequestInfo request={request} />
             </section>
             <section className={styles.chat}>
-              <Chat />
+              <Chat messages={request.comments} requestId={request.id} />
+            </section>
+            <section className={styles.history}>
+              <RequestNotificationHistory notifications={request.notifications} />
             </section>
           </>
         )}

@@ -1,0 +1,43 @@
+@import "@/shared/styles/variables";
+
+.message {
+  margin: 0 0 10px 0;
+  padding: 5px;
+  width: 90%;
+  background-color: $colorBackground;
+  border-radius: 5px;
+  color: $colorTextPrimary;
+  align-self: flex-start;
+  display: grid;
+  grid-template-areas: 'author time'
+                       'text text';
+
+  &_current {
+    background-color: $colorBackgroundAccent;
+    color: $colorTextContrast;
+    align-self: flex-end;
+  }
+
+  &__author {
+    margin: 0;
+    padding: 0;
+    grid-area: author;
+    max-width: 180px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__date {
+    margin: 0 0 0 auto;
+    padding: 0;
+    grid-area: time;
+    width: fit-content;
+  }
+
+  &__text {
+    margin: 5px 0 0 0;
+    padding: 0;
+    grid-area: text;
+  }
+}

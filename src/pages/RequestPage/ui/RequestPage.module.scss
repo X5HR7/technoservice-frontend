@@ -10,22 +10,30 @@
   margin: 30px auto 0 auto;
   padding: 0;
   max-width: 900px;
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 450px 400px;
+  grid-template-areas: 'info chat'
+                       'history chat';
   justify-content: space-between;
 }
 
-.info, .chat {
+.info, .chat, .history {
   margin: 0;
   padding: 10px 15px;
   background-color: $colorBackgroundSecondary;
   border-radius: 12px;
+  width: 100%;
 }
 
 .info {
-  width: 450px;
+  grid-area: info;
 }
 
 .chat {
-  width: 350px;
+  grid-area: chat;
+}
+
+.history {
+  margin-top: 20px;
+  grid-area: history;
 }

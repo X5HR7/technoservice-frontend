@@ -1,0 +1,86 @@
+@import "@/shared/styles/variables";
+
+.chat {
+  margin: 0;
+  padding: 0;
+
+  &__title {
+    margin: 0 10px 0 0;
+    padding: 0;
+  }
+
+  &__content {
+    margin: 20px 0 0 0;
+    padding: 0;
+    width: 100%;
+    position: relative;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__messages {
+    margin: 0;
+    padding: 0;
+    height: 70vh;
+    overflow-y: auto;
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+  }
+
+  &__form {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    &-input {
+      margin: 0 10px 0 0;
+      padding: 5px;
+      width: 75%;
+      font-size: 16px;
+      outline: none;
+      border: none;
+      border-radius: 5px;
+    }
+
+    &-button {
+      margin: 0;
+      padding: 5px;
+      width: 80px;
+      background-color: $colorBackgroundAccent;
+      border: none;
+      color: $colorTextContrast;
+      border-radius: 5px;
+
+      &:hover {
+        opacity: .7;
+        transition: opacity .3s;
+        cursor: pointer;
+      }
+
+      &:disabled {
+        background-color: transparent;
+        border: 1px solid $colorBackgroundAccent;
+        color: $colorTextAccent;
+        cursor: not-allowed;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+.empty {
+  margin: 20px 0 0 5px;
+  padding: 0;
+  font-size: 18px;
+  font-weight: 400;
+}
