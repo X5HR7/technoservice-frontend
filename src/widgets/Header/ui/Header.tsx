@@ -58,6 +58,16 @@ const Header: FC = () => {
             </NavLink>
           </li>
         )}
+        <li className={styles.nav__item}>
+          <NavLink
+            to={'/statistics'}
+            className={({ isActive }) =>
+              `${styles.nav__link} ${isActive ? styles.nav__link_active : ''}`
+            }
+          >
+            Статистика
+          </NavLink>
+        </li>
       </ul>
     </header>
   );
