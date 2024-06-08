@@ -1,5 +1,6 @@
 import { Request } from '@entities/Request';
 import { CreateRequestForm } from '@features/CreateRequestForm';
+import { useTypedSelector } from '@shared/libs/hooks/useTypedSelector.ts';
 import { IRequest } from '@shared/libs/interfaces';
 import { Button } from '@shared/ui';
 import { Modal } from '@widgets/Modal';
@@ -8,6 +9,8 @@ import React, { FC, useState } from 'react';
 import styles from './Requests.module.scss';
 
 const Requests: FC<IRequests> = ({ requests: requestsArr }) => {
+  const currentUser = useTypedSelector(state => state.auth.user);
+
   const [isOpened, setIsOpened] = useState(false);
   const [requests, setRequests] = useState<IRequest[]>(requestsArr);
 
@@ -34,14 +37,16 @@ const Requests: FC<IRequests> = ({ requests: requestsArr }) => {
       <section className={styles['request-section']}>
         <div className={styles.header}>
           <h2 className={styles['request-section__header']}>Текущие заявки</h2>
-          <Button
-            disabled={false}
-            appearance={'positive'}
-            mode={'secondary'}
-            onClick={handleOpenModalButtonClick}
-          >
-            Новая заявка
-          </Button>
+          {currentUser?.role === 'admin' ? null : (
+            <Button
+              disabled={false}
+              appearance={'positive'}
+              mode={'secondary'}
+              onClick={handleOpenModalButtonClick}
+            >
+              Новая заявка
+            </Button>
+          )}
         </div>
         <ul className={styles.requests}>
           {currentRequests.length > 0 ? (
@@ -51,16 +56,18 @@ const Requests: FC<IRequests> = ({ requests: requestsArr }) => {
           )}
         </ul>
       </section>
-      <section className={styles['request-section']}>
-        <h2 className={styles['request-section__header']}>История заявок</h2>
-        <ul className={styles.requests}>
-          {completedRequests.length > 0 ? (
-            completedRequests.map(request => <Request request={request} key={request.id} />)
-          ) : (
-            <p className={styles.request__not_found}>Вы никогда не оставляли у нас заявки!</p>
-          )}
-        </ul>
-      </section>
+      {currentUser?.role === 'admin' ? null : (
+        <section className={styles['request-section']}>
+          <h2 className={styles['request-section__header']}>История заявок</h2>
+          <ul className={styles.requests}>
+            {completedRequests.length > 0 ? (
+              completedRequests.map(request => <Request request={request} key={request.id} />)
+            ) : (
+              <p className={styles.request__not_found}>Вы никогда не оставляли у нас заявки!</p>
+            )}
+          </ul>
+        </section>
+      )}
     </>
   );
 };
