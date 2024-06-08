@@ -16,6 +16,13 @@ export const requestApiSlice = apiSlice.injectEndpoints({
         keepUnusedDataFor: 60
       })
     }),
+    getAllRequests: builder.query({
+      query: () => ({
+        url: '/requests/all',
+        method: 'GET',
+        keepUnusedDataFor: 60
+      })
+    }),
     createRequest: builder.mutation({
       query: data => ({
         url: '/requests',
@@ -49,6 +56,7 @@ export const requestApiSlice = apiSlice.injectEndpoints({
 export const {
   useGetUserRequestQuery,
   useGetUserRequestsQuery,
+  useGetAllRequestsQuery,
   useCreateRequestMutation,
   useUpdateRequestMasterMutation,
   useUpdateRequestStatusMutation
