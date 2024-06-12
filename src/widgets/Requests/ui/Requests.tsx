@@ -37,7 +37,7 @@ const Requests: FC<IRequests> = ({ requests: requestsArr }) => {
       <section className={styles['request-section']}>
         <div className={styles.header}>
           <h2 className={styles['request-section__header']}>Текущие заявки</h2>
-          {currentUser?.role === 'admin' ? null : (
+          {['admin', 'master'].includes(currentUser?.role as string) ? null : (
             <Button
               disabled={false}
               appearance={'positive'}
