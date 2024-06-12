@@ -27,6 +27,8 @@ const App = () => {
   useEffect(() => {
     if (user) {
       setIsAuth('auth');
+    } else {
+      setIsAuth('not-auth');
     }
   }, [user]);
 
