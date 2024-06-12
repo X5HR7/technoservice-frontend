@@ -1,0 +1,66 @@
+@import '@/shared/styles/variables';
+
+.select {
+  display: inline-block;
+  min-width: 250px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+
+  &__value {
+    cursor: pointer;
+    margin: 0;
+    padding: 6px 20px;
+    background-color: $colorBackgroundContent;
+    border: 1px solid $colorBackgroundSecondaryAlpha;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__options {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    //position: absolute;
+    list-style: none;
+    text-align: left;
+    border-radius: 5px;
+  }
+
+  &__option {
+    margin: 0;
+    padding: 6px 20px;
+    background-color: $colorBackgroundContent;
+    border: 1px solid $colorBackgroundSecondaryAlpha;
+    cursor: pointer;
+
+    &:first-of-type {
+      border-top-right-radius: 5px;
+      border-top-left-radius: 5px;
+    }
+
+    &:last-of-type {
+      border-bottom-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+    }
+
+    &:hover {
+      background-color: $colorBackgroundTertiary;
+    }
+  }
+}
+
+.arrow {
+  color: $colorTextSecondary;
+  transform: rotate(0deg);
+  transition: transform .3s;
+
+  &_up {
+    transform: rotate(180deg);
+    transition: transform .3s;
+  }
+}
+
