@@ -1,10 +1,38 @@
-import React, { FC } from 'react';
+import { useGetAllRequestsQuery } from '@features/request/request-api.slice.ts';
+import { useTypedSelector } from '@shared/libs/hooks/useTypedSelector.ts';
+import { IRequest } from '@shared/libs/interfaces';
+import { Spinner } from '@shared/ui';
+import { Header } from '@widgets/Header';
+import { Requests } from '@widgets/Requests';
+import React, { FC, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './AdminPage.module.scss';
 
 const AdminPage: FC = () => {
+  const navigate = useNavigate();
+  const currentUser = useTypedSelector(state => state.auth.user);
+
+  const { data: requests, isLoading } = useGetAllRequestsQuery<{
+    data: IRequest[];
+    isLoading: boolean;
+  }>(null);
+
+  useEffect(() => {
+    if (currentUser?.role !== 'admin') navigate('/403', { replace: true });
+  }, []);
+
   return (
-    <div>
-      Admin Page
+    <div className={styles.page}>
+      <Header />
+      <main className={styles.main}>
+        {isLoading ? (
+          <Spinner size={'large'} />
+        ) : (
+          <section className={styles.requests}>
+            <Requests requests={requests} />
+          </section>
+        )}
+      </main>
     </div>
   );
 };
