@@ -16,9 +16,23 @@ export const requestApiSlice = apiSlice.injectEndpoints({
         keepUnusedDataFor: 60
       })
     }),
+    getMasterRequests: builder.query({
+      query: () => ({
+        url: '/requests/master',
+        method: 'GET',
+        keepUnusedDataFor: 60
+      })
+    }),
     getAllRequests: builder.query({
       query: () => ({
         url: '/requests/all',
+        method: 'GET',
+        keepUnusedDataFor: 60
+      })
+    }),
+    getStats: builder.query({
+      query: () => ({
+        url: '/requests/stats',
         method: 'GET',
         keepUnusedDataFor: 60
       })
@@ -33,7 +47,7 @@ export const requestApiSlice = apiSlice.injectEndpoints({
     updateRequestMaster: builder.mutation({
       query: ({ requestId, masterId }: { requestId: string; masterId: string }) => ({
         url: `/requests/set-master/${requestId}`,
-        method: 'POST',
+        method: 'PATCH',
         body: { masterId }
       })
     }),
@@ -45,8 +59,8 @@ export const requestApiSlice = apiSlice.injectEndpoints({
         requestId: string;
         status: 'pending' | 'in-progress' | 'completed';
       }) => ({
-        url: `/requests/set-master/${requestId}`,
-        method: 'POST',
+        url: `/requests/update-status/${requestId}`,
+        method: 'PATCH',
         body: { status }
       })
     })
@@ -56,7 +70,9 @@ export const requestApiSlice = apiSlice.injectEndpoints({
 export const {
   useGetUserRequestQuery,
   useGetUserRequestsQuery,
+  useGetMasterRequestsQuery,
   useGetAllRequestsQuery,
+  useGetStatsQuery,
   useCreateRequestMutation,
   useUpdateRequestMasterMutation,
   useUpdateRequestStatusMutation
