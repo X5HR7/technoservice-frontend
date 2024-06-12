@@ -29,9 +29,10 @@ const Chat: FC<IChat> = ({ messages: messagesInitialValue, requestId }) => {
       message: currentMessageValue
     }).unwrap();
 
-    if (comment) setMessages(prev => [...prev, comment]);
-    else setIsValid(false);
-    console.log(comment);
+    if (comment) {
+      setMessages(prev => [...prev, comment]);
+      setCurrentMessageValue('');
+    } else setIsValid(false);
   };
 
   return (
