@@ -1,65 +1,17 @@
-import { Button, FormItem, Spinner } from '@shared/ui';
-import { Header } from '@widgets/Header';
-import { Modal } from '@widgets/Modal';
-import React, { FC, useState } from 'react';
-import styles from './MainPage.module.scss';
+import { useTypedSelector } from '@shared/libs/hooks/useTypedSelector.ts';
+import { FC, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const MainPage: FC = () => {
-  const [isOpened, setIsOpened] = useState(false);
+  const navigate = useNavigate();
+  const currentUser = useTypedSelector(state => state.auth.user);
 
-  return (
-    <div>
-      <Header />
-      <Modal isOpened={isOpened} setIsOpened={setIsOpened}>
-        <form className={styles.form}>
-          <FormItem
-            titleText={'Имя'}
-            errorMessage={'Error'}
-            input={{
-              value: '',
-              type: 'text',
-              maxLength: 30,
-              minLength: 5,
-              id: 'firstName'
-            }}
-          />
-          <FormItem
-            titleText={'Фамилия'}
-            errorMessage={'Error'}
-            input={{
-              value: '',
-              type: 'text',
-              maxLength: 30,
-              minLength: 5,
-              id: 'lastName',
-              placeholder: 'Введите фамилию'
-            }}
-          />
-          <FormItem
-            titleText={'Почта'}
-            errorMessage={'Error'}
-            input={{
-              value: '',
-              type: 'email',
-              maxLength: 30,
-              minLength: 5,
-              id: 'email'
-            }}
-          />
-        </form>
-      </Modal>
+  useEffect(() => {
+    if (currentUser?.role) navigate(`/${currentUser.role}`, { replace: true });
+    else navigate(`/statistics`, { replace: true });
+  }, []);
 
-      <Spinner size={'large'} />
-      <Button
-        disabled={false}
-        appearance={'positive'}
-        mode={'primary'}
-        onClick={() => setIsOpened(true)}
-      >
-        Open
-      </Button>
-    </div>
-  );
+  return null;
 };
 
 export { MainPage };
